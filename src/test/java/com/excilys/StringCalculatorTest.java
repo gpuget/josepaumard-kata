@@ -7,11 +7,25 @@ import org.junit.jupiter.api.Test;
 class StringCalculatorTest {
     @Test
     public void empty() {
-        assertThat(StringCalculator.add("")).isZero();
+        String input = "";
+        assertThat(StringCalculator.add(input)).isZero();
     }
 
     @Test
     public void simple() {
-        assertThat(StringCalculator.add("1")).isEqualTo(1);
+        String input = "1";
+        assertThat(StringCalculator.add(input)).isEqualTo(1);
+    }
+
+    @Test
+    public void twoArguments() {
+        String input = "1,2";
+        assertThat(StringCalculator.add(input)).isEqualTo(3);
+    }
+
+    @Test
+    public void multiple() {
+        String input = "1,2,3,4,5,6";
+        assertThat(StringCalculator.add(input)).isEqualTo(21);
     }
 }
