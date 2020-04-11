@@ -42,7 +42,7 @@ public final class StringCalculator {
             values = input;
         }
 
-        if (Pattern.matches("\\d*" + delimiter + '+', values)) {
+        if (input.endsWith("\n")) {
             throw new IllegalArgumentException("missing number");
         }
 

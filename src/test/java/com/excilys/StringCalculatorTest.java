@@ -34,7 +34,7 @@ class StringCalculatorTest {
 
     @Test
     public void newLineAtThenEnd() {
-        TestBuilder.given("1,\n,").when(StringCalculator::add).thenThrows(IllegalArgumentException.class);
+        TestBuilder.given("1,\n").when(StringCalculator::add).thenThrows(IllegalArgumentException.class);
     }
 
     @Test
