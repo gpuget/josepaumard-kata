@@ -1,6 +1,7 @@
 package com.excilys;
 
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -37,6 +38,15 @@ public final class StringCalculator {
 
         if (Pattern.matches("\\d*" + delimiter + '+', input)) {
             throw new IllegalArgumentException("missing number");
+        }
+
+        String negativeNumbers = Stream.of(input.split(delimiter))
+                                       .mapToInt(Integer::parseInt)
+                                       .filter(i -> i < 0)
+                                       .mapToObj(String::valueOf)
+                                       .collect(Collectors.joining(", "));
+        if (!negativeNumbers.isEmpty()) {
+            throw new IllegalArgumentException("not allowed negative number: " + negativeNumbers);
         }
 
         return Stream.of(input.split(delimiter)).mapToInt(Integer::parseInt).sum();

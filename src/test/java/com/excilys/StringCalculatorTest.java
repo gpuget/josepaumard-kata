@@ -47,4 +47,11 @@ class StringCalculatorTest {
         String input = "//;\n1;2";
         assertThat(StringCalculator.add(input)).isEqualTo(3);
     }
+
+    @Test
+    public void negative() {
+        String input = "1,-2,-3";
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> StringCalculator.add(input));
+        assertThat(e.getMessage()).contains("-2", "-3");
+    }
 }
