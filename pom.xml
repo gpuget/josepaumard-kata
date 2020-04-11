@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.excilys</groupId>
-    <artifactId>fizzbuzz-kata</artifactId>
+    <artifactId>josepaumard-kata</artifactId>
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>
