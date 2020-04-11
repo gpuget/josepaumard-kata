@@ -1,6 +1,8 @@
 # josepaumard-kata
 https://josepaumard.github.io/
 * FizzBuzz: https://josepaumard.github.io/katas/introductory/fizzbuzz-kata.html
+* String Calculator: https://josepaumard.github.io/katas/introductory/stringcalculator-kata.html
+
 
 # The FizzBuzz Kata
 The FizzBuzz kata is the first kata of our serie. It is very simple and inspired by a game told to young children to teach them the division. Because it is very simple, we can use it to see the first principles of clean code and software crafstmanship.
