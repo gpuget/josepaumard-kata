@@ -54,4 +54,10 @@ class StringCalculatorTest {
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> StringCalculator.add(input));
         assertThat(e.getMessage()).contains("-2", "-3");
     }
+
+    @Test
+    public void over9000() {
+        String input = "1,9000";
+        assertThat(StringCalculator.add(input)).isEqualTo(1);
+    }
 }
