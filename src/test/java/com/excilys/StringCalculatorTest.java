@@ -51,6 +51,11 @@ class StringCalculatorTest {
     }
 
     @Test
+    public void max() {
+        TestBuilder.given("2,1000").when(StringCalculator::add).then(1002);
+    }
+
+    @Test
     public void over9000() {
         TestBuilder.given("1,9000").when(StringCalculator::add).then(1);
     }

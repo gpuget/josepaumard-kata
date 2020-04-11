@@ -5,25 +5,29 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * The type String calculator.
+ * Calculator for string.
  */
 public final class StringCalculator {
-    private static final Pattern DELIMITER_PATTERN = Pattern.compile("\\n");
-    private static final String DEFAULT_NUMBER_DELIMITER = "[,\\n]";
+    private static final Pattern DELIMITER_DELIMITER_PATTERN = Pattern.compile("\\n");
     private static final String DELIMITER_PREFIX = "//";
-    private static final int MAX = 1000;
+    private static final String DEFAULT_NUMBER_DELIMITER = "[,\\n]";
+    private static final int NUMBER_MAX = 1000;
 
+    /**
+     * Must not be called.
+     */
     private StringCalculator() {
         throw new AssertionError();
     }
 
     /**
-     * Add int.
+     * Performs an addition of all delimited positive numbers. A delimiter can be provided with the following pattern:
+     * "//[delimiter]\n[numbers...]".
      *
      * @param input
      *         the input
      *
-     * @return the int
+     * @return the addition result
      */
     public static int add(String input) {
         if (input.isBlank()) {
@@ -32,7 +36,7 @@ public final class StringCalculator {
 
         String delimiter = DEFAULT_NUMBER_DELIMITER;
         if (hasCustomDelimiter(input)) {
-            var split = DELIMITER_PATTERN.split(input.substring(DELIMITER_PREFIX.length()), 2);
+            var split = DELIMITER_DELIMITER_PATTERN.split(input.substring(DELIMITER_PREFIX.length()), 2);
             delimiter = split[0];
             input = split[1];
         }
@@ -40,15 +44,33 @@ public final class StringCalculator {
         return add(input, delimiter);
     }
 
+    /**
+     * Performs the addition of numbers in the input string.
+     *
+     * @param input
+     *         the input string containing numbers
+     * @param delimiter
+     *         the delimiter
+     *
+     * @return the addition result
+     */
     private static int add(String input, String delimiter) {
         check(input, delimiter);
-        return asIntStream(input, delimiter).filter(i -> i < MAX).sum();
+        return asIntStream(input, delimiter).filter(i -> i <= NUMBER_MAX).sum();
     }
 
     private static boolean hasCustomDelimiter(String input) {
         return input.startsWith(DELIMITER_PREFIX);
     }
 
+    /**
+     * Performs all checks.
+     *
+     * @param input
+     *         the input
+     * @param delimiter
+     *         the delimiter
+     */
     public static void check(String input, String delimiter) {
         checkFormat(input);
         checkNoNegativeNumber(input, delimiter);
