@@ -1,6 +1,7 @@
 package com.excilys;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -33,5 +34,11 @@ class StringCalculatorTest {
     public void newLine() {
         String input = "1\n2,3,";
         assertThat(StringCalculator.add(input)).isEqualTo(6);
+    }
+
+    @Test
+    public void newLineAtThenEnd() {
+        String input = "1,\n";
+        assertThrows(IllegalArgumentException.class, () -> StringCalculator.add(input));
     }
 }
