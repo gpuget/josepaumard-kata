@@ -17,10 +17,8 @@ public final class StringCalculator {
      * @return the int
      */
     public static int add(String input) {
-        if (input.isBlank()) {
-            return 0;
-        }
-
-        return Integer.parseInt(input);
+        return (input.isBlank())
+               ? 0
+               : Integer.parseInt(input);
     }
 }
