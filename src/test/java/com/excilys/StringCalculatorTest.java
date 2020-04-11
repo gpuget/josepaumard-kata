@@ -41,4 +41,10 @@ class StringCalculatorTest {
         String input = "1,\n";
         assertThrows(IllegalArgumentException.class, () -> StringCalculator.add(input));
     }
+
+    @Test
+    public void delimiter() {
+        String input = "//;\n1;2";
+        assertThat(StringCalculator.add(input)).isEqualTo(3);
+    }
 }
