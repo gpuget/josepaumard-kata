@@ -1,5 +1,6 @@
-package com.excilys;
+package com.excilys.calculator;
 
+import com.excilys.calculator.exception.AddOperationException;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -28,8 +29,11 @@ public final class StringCalculator {
      *         the input
      *
      * @return the addition result
+     *
+     * @throws AddOperationException
+     *         if invalid input
      */
-    public static int add(String input) {
+    public static int add(String input) throws AddOperationException {
         if (input.isBlank()) {
             return 0;
         }
@@ -54,7 +58,7 @@ public final class StringCalculator {
      *
      * @return the addition result
      */
-    private static int add(String input, String delimiter) {
+    private static int add(String input, String delimiter) throws AddOperationException {
         check(input, delimiter);
         return asIntStream(input, delimiter).filter(i -> i <= NUMBER_MAX).sum();
     }
@@ -71,9 +75,13 @@ public final class StringCalculator {
      * @param delimiter
      *         the delimiter
      */
-    public static void check(String input, String delimiter) {
-        checkFormat(input);
-        checkNoNegativeNumber(input, delimiter);
+    public static void check(String input, String delimiter) throws AddOperationException {
+        try {
+            checkFormat(input);
+            checkNoNegativeNumber(input, delimiter);
+        } catch (IllegalArgumentException e) {
+            throw new AddOperationException(e);
+        }
     }
 
     private static void checkFormat(String input) {

@@ -1,8 +1,9 @@
-package com.excilys;
+package com.excilys.calculator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import com.excilys.calculator.exception.AddOperationException;
 import java.util.function.ToIntFunction;
 import org.junit.jupiter.api.Test;
 
@@ -34,7 +35,7 @@ class StringCalculatorTest {
 
     @Test
     public void newLineAtThenEnd() {
-        TestBuilder.given("1,\n").when(StringCalculator::add).thenThrows(IllegalArgumentException.class);
+        TestBuilder.given("1,\n").when(StringCalculator::add).thenThrows(AddOperationException.class);
     }
 
     @Test
@@ -46,7 +47,7 @@ class StringCalculatorTest {
     public void negative() {
         TestBuilder.given("1,-2,-3")
                    .when(StringCalculator::add)
-                   .thenThrows(IllegalArgumentException.class)
+                   .thenThrows(AddOperationException.class)
                    .andMessageContains("-2", "-3");
     }
 
