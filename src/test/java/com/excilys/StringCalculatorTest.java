@@ -28,4 +28,10 @@ class StringCalculatorTest {
         String input = "1,2,3,4,5,6";
         assertThat(StringCalculator.add(input)).isEqualTo(21);
     }
+
+    @Test
+    public void newLine() {
+        String input = "1\n2,3,";
+        assertThat(StringCalculator.add(input)).isEqualTo(6);
+    }
 }

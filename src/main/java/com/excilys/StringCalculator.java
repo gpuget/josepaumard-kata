@@ -6,7 +6,7 @@ import java.util.stream.Stream;
  * The type String calculator.
  */
 public final class StringCalculator {
-    private static final String DELIMITER = ",";
+    private static final String DELIMITER = "[,\n]";
 
     private StringCalculator() {
         throw new AssertionError();
