@@ -44,4 +44,9 @@ class RPNCalculatorTest {
     public void given9AndSqrt_whenCompute_then3() {
         givenInput_whenCompute_thenExpected("9 SQRT", 3);
     }
+
+    @Test
+    public void givenMax_whenCompute_thenMax() {
+        givenInput_whenCompute_thenExpected("5 8 1 4 2 MAX", 8);
+    }
 }

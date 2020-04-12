@@ -1,6 +1,7 @@
 package com.excilys.calculator.rpn;
 
 import java.util.ArrayDeque;
+import java.util.Comparator;
 import java.util.Deque;
 import java.util.regex.Pattern;
 
@@ -31,11 +32,15 @@ public class RPNCalculator {
                 operands.push(Integer.parseInt(s));
             } else {
                 Operation operation = Operation.of(s);
-                if (operation != Operation.SQRT) {
+                if (operation == Operation.SQRT) {
+                    operands.push(operation.compute(operands.pop(), 0));
+                } else if (operation == Operation.MAX) {
+                    return operands.stream()
+                                   .max(Comparator.naturalOrder())
+                                   .orElseThrow(() -> new IllegalArgumentException("missing operand"));
+                } else {
                     int intermediate = operation.reverseAndCompute(operands.pop(), operands.pop());
                     operands.push(intermediate);
-                } else {
-                    operands.push(operation.compute(operands.pop(), 0));
                 }
             }
         }

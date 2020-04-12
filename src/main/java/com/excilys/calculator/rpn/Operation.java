@@ -14,10 +14,11 @@ public enum Operation {
         public int reverseAndCompute(int y, int x) {
             return compute(y, x);
         }
-    };
+    },
+    MAX(null);
 
     private static final Map<String, Operation> MAPPING =
-            Map.of("+", ADD, "/", DIV, ":", DIV, "-", SUB, "*", MUL, "x", MUL, SQRT.name(), SQRT);
+            Map.of("+", ADD, "/", DIV, ":", DIV, "-", SUB, "*", MUL, "x", MUL, SQRT.name(), SQRT, MAX.name(), MAX);
 
     private final IntBinaryOperator op;
 
