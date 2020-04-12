@@ -13,21 +13,16 @@ import java.util.stream.Collector;
 /**
  * RPN Collector.
  */
-enum RPNCollector implements Collector<String, Deque<Integer>, Integer> {
-    /**
-     * Singleton instance.
-     */
-    INSTANCE;
-
+class RPNCollector implements Collector<String, Deque<Integer>, Integer> {
     private final Deque<Integer> operands = new ArrayDeque<>(2);
 
     /**
-     * Gets the instance of RPN collector.
+     * Gets an instance of RPN collector.
      *
      * @return the instance
      */
     public static RPNCollector get() {
-        return INSTANCE;
+        return new RPNCollector();
     }
 
     @Override
