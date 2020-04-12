@@ -10,6 +10,10 @@ public class FizzBuzz {
             return "Fizz";
         }
 
+        if (number == 5) {
+            return "Buzz";
+        }
+
         return String.valueOf(number);
     }
 }
