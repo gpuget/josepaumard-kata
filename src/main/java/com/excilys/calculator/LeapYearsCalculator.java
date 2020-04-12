@@ -6,6 +6,6 @@ public class LeapYearsCalculator {
     }
 
     public static boolean execute(int year) {
-        return false;
+        return (year % 4) == 0;
     }
 }

@@ -21,4 +21,9 @@ class LeapYearsCalculatorTest {
     public void given2001_whenLeapYears_thenCommon() {
         givenYear_whenLeapYears_thenCommon(2001);
     }
+
+    @Test
+    public void given1996_whenLeapYears_thenLeap() {
+        givenYear_whenLeapYears_thenLeap(1996);
+    }
 }
