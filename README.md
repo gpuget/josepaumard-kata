@@ -9,7 +9,7 @@ The FizzBuzz kata is the first kata of our serie. It is very simple and inspired
 We want to be able to print the numbers between 1 and 100. If the number is divisible by 3, we want to print Fizz instead of this number. If the number is divisible by 5, we want to print Buzz instead. And if the number is divisible by both 3 and 5, we want to print FizzBuzz. Easy enough?
 
 ## Comments
-This first kata is really so easy to solve, that you are probably asking yourself: why bother working on such an easy problem? In fact, the FizzBuz is a non-problem, and this is why I like to use it as the very first kata for people who never gave a try at Test Driven Development (TDD).
+This first kata is really so easy to solve, that you are probably asking yourself: why bother working on such an easy problem? In fact, the `FizzBuz` is a non-problem, and this is why I like to use it as the very first kata for people who never gave a try at Test Driven Development (TDD).
 
 I usually just ask the people: ok, go for it, could you show me how to write this code using TDD. I just look at the code people are writing for a few minutes (no more than 10), and then begin to explain them the first principles of clean coding and TDD.
 
@@ -20,17 +20,17 @@ Some questions soon arise: what should we write? Is it a class? With which metho
 
 For me it is the right time to explain the role of a business analyst, or whatever you call this role. A business analyst does not have necessarily any programming skills or knowledge, but she should be able to answer any kind of questions about the specifications. Since in these specifications there is no mention of any class or method or even method signature, you, as a developer, should have the reflex to ask these questions to the right person. Of course, you should know this person. If you do not, it probably means that there is a problem in the organization of your team.
 
-So in this case, yes, you should create a class, with a method that takes an argument as an int, and return a String.
+So in this case, yes, you should create a class, with a method that takes an argument as an `int`, and return a `String`.
 
 ### Naming Test Methods
-Most of the people will name their test methods like this testFizz() of testBuzz() of even worse testFizz0(), testFizz1() and so on. So one of the first point is to explain that a test method should explain what it does test, in a name that should be self explanatory. The reason being, when all you have is your Sonar report, having to dig into the code to understand what is wrong with your application or your module is just a waste of time. The only thing Sonar will give you is the name of the failed test method, so this name should give you all the information you need to understand where you should go to fix this test.
+Most of the people will name their test methods like this `testFizz()` of `testBuzz()` of even worse `testFizz0()`, `testFizz1()` and so on. So one of the first point is to explain that a test method should explain what it does test, in a name that should be self explanatory. The reason being, when all you have is your Sonar report, having to dig into the code to understand what is wrong with your application or your module is just a waste of time. The only thing Sonar will give you is the name of the failed test method, so this name should give you all the information you need to understand where you should go to fix this test.
 
-Yes, we have been told for ages that a Java method should begin with a lower case letter, should use camel case, should not use the underscore character, and should not be too long. And maybe should begin with a verb. A method named getAge() is a perfect example, toString() is another one.
+Yes, we have been told for ages that a Java method should begin with a lower case letter, should use camel case, should not use the underscore character, and should not be too long. And maybe should begin with a verb. A method named `getAge()` is a perfect example, `toString()` is another one.
 
-For test methods, things are different. Most of the time the are lengthy, and it is a fact that camel case makes lengthy name unreadable. Having a test method that used snake case (with underscores) instead of camel case makes perfect sense. Your first method for this kata could be: should_return_1_when_called_with_1(). It does not look like the name of a Java method at all, but it does look like the name of a test method following the clean code rules. It will be hard for a seasoned Java programmer to accept that, but don’t worry, it is not the first thing she wil have to admit.
+For test methods, things are different. Most of the time the are lengthy, and it is a fact that camel case makes lengthy name unreadable. Having a test method that used snake case (with underscores) instead of camel case makes perfect sense. Your first method for this kata could be: `should_return_1_when_called_with_1()`. It does not look like the name of a Java method at all, but it does look like the name of a test method following the clean code rules. It will be hard for a seasoned Java programmer to accept that, but don’t worry, it is not the first thing she wil have to admit.
 
 ### How to Write a Test
-Once the name of the method is correct and explains the intent of the test method, we can move on to the body of the method. Most of the time, this body is correct in the overall. An instance of a FizzBuzz class is created, then the method is called with an argument, and the returned String captured in a variable.
+Once the name of the method is correct and explains the intent of the test method, we can move on to the body of the method. Most of the time, this body is correct in the overall. An instance of a `FizzBuzz` class is created, then the method is called with an argument, and the returned `String` captured in a variable.
 
 Some people write their tests without assertions in them, and prefer to print our the result. Of course this is wrong, a test without an assertion is not a test.
 
@@ -56,7 +56,7 @@ public void should_return_1_when_called_with_1() {
     assertThat(output).isEqualTo(expectedOutput);
 }
 ```
-Some technical notes: the @Test annotation is rather agnostic. Most of the people will use JUnit, which is fine. I prefer to use TestNG, and have been used to it for years.
+Some technical notes: the `@Test` annotation is rather agnostic. Most of the people will use JUnit, which is fine. I prefer to use TestNG, and have been used to it for years.
 
 The `assertThat()` call does not come from JUnit neither TestNG, it comes from the AssertJ framework and the imported class is the `Assertions` class. This assertion framework is so great, I think that every project should use it.
 
