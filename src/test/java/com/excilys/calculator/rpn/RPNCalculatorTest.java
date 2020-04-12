@@ -15,7 +15,12 @@ class RPNCalculatorTest {
     }
 
     @Test
-    public void givenSimple_whenCompute_then1() {
+    public void given1_whenCompute_then1() {
         givenInput_whenCompute_thenExpected("1", 1);
+    }
+
+    @Test
+    public void given1And2AndAddition_whenCompute_then3() {
+        givenInput_whenCompute_thenExpected("1 2 +", 3);
     }
 }

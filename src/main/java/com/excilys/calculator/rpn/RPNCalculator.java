@@ -1,6 +1,8 @@
 package com.excilys.calculator.rpn;
 
 public class RPNCalculator {
+    private static final String DELIMITER = " ";
+
     private RPNCalculator() {
         throw new AssertionError("The choice is an illusion");
     }
@@ -12,6 +14,13 @@ public class RPNCalculator {
 
         if (input.length() == 1) {
             return Integer.parseInt(input);
+        }
+
+        var split = input.split(DELIMITER);
+        if (split.length == 3) {
+            if ("+".equals(split[2])) {
+                return Integer.parseInt(split[0]) + Integer.parseInt(split[1]);
+            }
         }
 
         return 0;
