@@ -6,6 +6,6 @@ public class FizzBuzz {
     }
 
     public static String execute(int number) {
-        return "";
+        return String.valueOf(number);
     }
 }
