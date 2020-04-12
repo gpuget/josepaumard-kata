@@ -6,9 +6,10 @@ import java.util.function.IntBinaryOperator;
 
 public enum Operation {
     ADD((x, y) -> x + y),
-    DIVIDE((x, y) -> x / y);
+    SUB((x, y) -> x - y),
+    DIV((x, y) -> x / y);
 
-    private static final Map<String, Operation> MAPPING = Map.of("+", ADD, "/", DIVIDE, ":", DIVIDE);
+    private static final Map<String, Operation> MAPPING = Map.of("+", ADD, "/", DIV, ":", DIV, "-", SUB);
 
     private final IntBinaryOperator op;
 
@@ -17,10 +18,15 @@ public enum Operation {
     }
 
     public static Operation of(String symbol) {
-        return Optional.ofNullable(MAPPING.get(symbol)).orElseThrow(IllegalAccessError::new);
+        return Optional.ofNullable(MAPPING.get(symbol))
+                       .orElseThrow(() -> new IllegalArgumentException("no operation for symbol: " + symbol));
     }
 
     public int compute(int x, int y) {
         return this.op.applyAsInt(x, y);
+    }
+
+    public int reverseAndCompute(int y, int x) {
+        return compute(x, y);
     }
 }

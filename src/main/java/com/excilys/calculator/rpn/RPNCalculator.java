@@ -1,5 +1,7 @@
 package com.excilys.calculator.rpn;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.regex.Pattern;
 
 public class RPNCalculator {
@@ -22,11 +24,17 @@ public class RPNCalculator {
     }
 
     private static int doCompute(String input) {
-        var split = DELIMITER.split(input);
-        if (split.length == 3) {
-            return Operation.of(split[2]).compute(Integer.parseInt(split[0]), Integer.parseInt(split[1]));
-        } else {
-            throw new IllegalArgumentException("impossible to compile the operation");
+        Deque<Integer> operands = new ArrayDeque<>(2);
+
+        for (String s : DELIMITER.split(input)) {
+            if (Character.isDigit(s.charAt(0))) {
+                operands.push(Integer.parseInt(s));
+            } else {
+                int intermediate = Operation.of(s).reverseAndCompute(operands.pop(), operands.pop());
+                operands.push(intermediate);
+            }
         }
+
+        return operands.pop();
     }
 }
