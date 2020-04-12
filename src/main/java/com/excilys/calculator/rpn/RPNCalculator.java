@@ -35,6 +35,6 @@ public class RPNCalculator {
             return Integer.parseInt(input);
         }
 
-        return DELIMITER.splitAsStream(input).collect(new RPNCollector());
+        return DELIMITER.splitAsStream(input).collect(RPNCollector.get());
     }
 }

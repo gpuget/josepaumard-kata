@@ -10,8 +10,25 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collector;
 
-class RPNCollector implements Collector<String, Deque<Integer>, Integer> {
+/**
+ * RPN Collector.
+ */
+enum RPNCollector implements Collector<String, Deque<Integer>, Integer> {
+    /**
+     * Singleton instance.
+     */
+    INSTANCE;
+
     private final Deque<Integer> operands = new ArrayDeque<>(2);
+
+    /**
+     * Gets the instance of RPN collector.
+     *
+     * @return the instance
+     */
+    public static RPNCollector get() {
+        return INSTANCE;
+    }
 
     @Override
     public Supplier<Deque<Integer>> supplier() {
@@ -20,10 +37,10 @@ class RPNCollector implements Collector<String, Deque<Integer>, Integer> {
 
     @Override
     public BiConsumer<Deque<Integer>, String> accumulator() {
-        return (opAcc, s) -> opAcc.push(consume(s));
+        return (opAcc, s) -> opAcc.push(mapToInteger(s));
     }
 
-    private Integer consume(String s) {
+    private Integer mapToInteger(String s) {
         return Character.isDigit(s.charAt(0))
                ? Integer.parseInt(s)
                : RPNOperationStrategy.of(s).compute(this.operands);
