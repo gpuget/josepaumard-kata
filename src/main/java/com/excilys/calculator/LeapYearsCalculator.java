@@ -5,19 +5,19 @@ public class LeapYearsCalculator {
         throw new AssertionError("RUN AWAAAY !");
     }
 
-    public static boolean execute(int year) {
-        return isDivisibleBy400(year) || (isDivisibleBy4(year) && !isDivisibleBy100(year));
+    public static boolean isLeapYear(int year) {
+        return isAtypicalLeap(year) || (isTypicalLeap(year) && !isAtypicalCommon(year));
     }
 
-    private static boolean isDivisibleBy4(int number) {
+    private static boolean isTypicalLeap(int number) {
         return isDivisibleBy(number, 4);
     }
 
-    private static boolean isDivisibleBy100(int number) {
+    private static boolean isAtypicalCommon(int number) {
         return isDivisibleBy(number, 100);
     }
 
-    private static boolean isDivisibleBy400(int number) {
+    private static boolean isAtypicalLeap(int number) {
         return isDivisibleBy(number, 400);
     }
 

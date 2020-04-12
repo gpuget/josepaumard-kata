@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class LeapYearsCalculatorTest {
     private void givenYear_whenLeapYears_then(int year, boolean leap) {
-        assertThat(LeapYearsCalculator.execute(year)).isEqualTo(leap);
+        assertThat(LeapYearsCalculator.isLeapYear(year)).isEqualTo(leap);
     }
 
     private void givenYear_whenLeapYears_thenCommon(int year) {
