@@ -5,35 +5,41 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 
 class LeapYearsCalculatorTest {
-    private void givenYear_whenLeapYears_then(int year, boolean leap) {
+    private void givenYear_whenLeapYear_then(int year, boolean leap) {
         assertThat(LeapYearsCalculator.isLeapYear(year)).isEqualTo(leap);
     }
 
-    private void givenYear_whenLeapYears_thenCommon(int year) {
-        givenYear_whenLeapYears_then(year, false);
+    private void givenYear_whenLeapYear_thenCommon(int year) {
+        givenYear_whenLeapYear_then(year, false);
     }
 
-    private void givenYear_whenLeapYears_thenLeap(int year) {
-        givenYear_whenLeapYears_then(year, true);
-    }
-
-    @Test
-    public void given2001_whenLeapYears_thenCommon() {
-        givenYear_whenLeapYears_thenCommon(2001);
+    private void givenYear_whenLeapYear_thenLeap(int year) {
+        givenYear_whenLeapYear_then(year, true);
     }
 
     @Test
-    public void given1996_whenLeapYears_thenLeap() {
-        givenYear_whenLeapYears_thenLeap(1996);
+    public void given2001_whenLeapYear_thenCommon() {
+        givenYear_whenLeapYear_thenCommon(2001);
     }
 
     @Test
-    public void given1900_whenLeapYears_thenCommon() {
-        givenYear_whenLeapYears_thenCommon(1900);
+    public void given1996_whenLeapYear_thenLeap() {
+        givenYear_whenLeapYear_thenLeap(1996);
     }
 
     @Test
-    public void given2000_whenLeapYears_thenLeap() {
-        givenYear_whenLeapYears_thenLeap(2000);
+    public void given1900_whenLeapYear_thenCommon() {
+        givenYear_whenLeapYear_thenCommon(1900);
+    }
+
+    @Test
+    public void given2000_whenLeapYear_thenLeap() {
+        givenYear_whenLeapYear_thenLeap(2000);
+    }
+
+    @Test
+    public void givenYear_whenCommonYear_thenNotLeap() {
+        boolean expected = !LeapYearsCalculator.isLeapYear(2000);
+        assertThat(LeapYearsCalculator.isCommonYear(2000)).isEqualTo(expected);
     }
 }

@@ -9,8 +9,8 @@ public class LeapYearsCalculator {
     }
 
     /**
-     * Returns if the year is leap or common. A leap year is defined as one that is divisible by 4, but is not otherwise
-     * divisible by 100 unless it is also divisible by 400. For example:
+     * Returns if the year is leap. A leap year is defined as one that is divisible by 4, but is not otherwise divisible
+     * by 100 unless it is also divisible by 400. For example:
      * <ul>
      *     <li>1996 is typical leap year</li>
      *     <li>2001 is typical common year</li>
@@ -25,6 +25,20 @@ public class LeapYearsCalculator {
      */
     public static boolean isLeapYear(int year) {
         return isAtypicalLeap(year) || (!isAtypicalCommon(year) && isTypicalLeap(year));
+    }
+
+    /**
+     * Returns if the year is common.
+     *
+     * @param year
+     *         the year
+     *
+     * @return {@code false} if the year is leap
+     *
+     * @see #isLeapYear(int)
+     */
+    public static boolean isCommonYear(int year) {
+        return !isLeapYear(year);
     }
 
     /**
