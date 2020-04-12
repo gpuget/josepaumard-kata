@@ -18,9 +18,7 @@ public class RPNCalculator {
 
         var split = input.split(DELIMITER);
         if (split.length == 3) {
-            if ("+".equals(split[2])) {
-                return Integer.parseInt(split[0]) + Integer.parseInt(split[1]);
-            }
+            return Operation.of(split[2]).compute(Integer.parseInt(split[0]), Integer.parseInt(split[1]));
         }
 
         return 0;
