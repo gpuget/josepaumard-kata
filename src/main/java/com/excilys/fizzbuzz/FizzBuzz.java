@@ -6,7 +6,7 @@ public class FizzBuzz {
     }
 
     public static String execute(int number) {
-        if ((number == 3) || (number == 6)) {
+        if (isDivisibleBy3(number)) {
             return "Fizz";
         }
 
@@ -15,5 +15,9 @@ public class FizzBuzz {
         }
 
         return String.valueOf(number);
+    }
+
+    private static boolean isDivisibleBy3(int number) {
+        return (number % 3) == 0;
     }
 }

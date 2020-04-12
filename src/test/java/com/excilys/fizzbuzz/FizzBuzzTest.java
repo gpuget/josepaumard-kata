@@ -25,6 +25,11 @@ class FizzBuzzTest {
         givenNumber_whenFizzBuzz_thenExpected(6, "Fizz");
     }
 
+    @Test
+    public void given9_whenFizzBuzz_thenFizz() {
+        givenNumber_whenFizzBuzz_thenExpected(9, "Fizz");
+    }
+
     private void givenNumber_whenFizzBuzz_thenExpected(int number, String expected) {
         assertThat(FizzBuzz.execute(number)).isEqualTo(expected);
     }
