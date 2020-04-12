@@ -4,7 +4,13 @@ import java.util.Deque;
 import java.util.OptionalInt;
 import java.util.function.Function;
 
+/**
+ * Aggregation operation.
+ */
 public enum AggregationOperation implements RPNOperation {
+    /**
+     * Max aggregation operation.
+     */
     MAX(deque -> deque.stream().mapToInt(Integer::intValue).max());
 
     private final Function<Deque<Integer>, OptionalInt> operator;
