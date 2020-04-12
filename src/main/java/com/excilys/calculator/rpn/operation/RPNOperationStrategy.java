@@ -32,7 +32,7 @@ public class RPNOperationStrategy {
      * @throws IllegalArgumentException
      *         if no operation found
      */
-    public static RPNOperation of(String symbol) {
+    public static RPNOperation fromSymbol(String symbol) {
         return Optional.ofNullable(MAPPING.get(symbol))
                        .orElseThrow(() -> new IllegalArgumentException("no operation found for: " + symbol));
     }

@@ -43,7 +43,7 @@ enum RPNCollector implements Collector<String, Deque<Integer>, Integer> {
     private Integer mapToInteger(String s) {
         return Character.isDigit(s.charAt(0))
                ? Integer.parseInt(s)
-               : RPNOperationStrategy.of(s).compute(this.operands);
+               : RPNOperationStrategy.fromSymbol(s).compute(this.operands);
     }
 
     @Override
