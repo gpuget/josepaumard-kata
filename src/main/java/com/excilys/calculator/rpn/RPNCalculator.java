@@ -1,8 +1,5 @@
 package com.excilys.calculator.rpn;
 
-import com.excilys.calculator.rpn.operation.RPNOperationStrategy;
-import java.util.ArrayDeque;
-import java.util.Deque;
 import java.util.regex.Pattern;
 
 /**
@@ -38,20 +35,6 @@ public class RPNCalculator {
             return Integer.parseInt(input);
         }
 
-        return doCompute(input);
-    }
-
-    private static int doCompute(String input) {
-        Deque<Integer> operands = new ArrayDeque<>(2);
-
-        for (String s : DELIMITER.split(input)) {
-            if (Character.isDigit(s.charAt(0))) {
-                operands.push(Integer.parseInt(s));
-            } else {
-                RPNOperationStrategy.of(s).computeAndPush(operands);
-            }
-        }
-
-        return operands.pop();
+        return DELIMITER.splitAsStream(input).collect(new RPNCollector());
     }
 }
