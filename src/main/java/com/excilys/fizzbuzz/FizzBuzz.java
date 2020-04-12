@@ -6,7 +6,7 @@ public class FizzBuzz {
     }
 
     public static String execute(int number) {
-        if (number == 3) {
+        if ((number == 3) || (number == 6)) {
             return "Fizz";
         }
 
