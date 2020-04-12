@@ -3,7 +3,8 @@ package com.excilys.calculator;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.excilys.calculator.exception.AddOperationException;
+import com.excilys.calculator.string.StringCalculator;
+import com.excilys.calculator.string.exception.AddOperationException;
 import java.util.function.ToIntFunction;
 import org.junit.jupiter.api.Test;
 

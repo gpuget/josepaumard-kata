@@ -1,6 +1,6 @@
-package com.excilys.calculator;
+package com.excilys.calculator.string;
 
-import com.excilys.calculator.exception.AddOperationException;
+import com.excilys.calculator.string.exception.AddOperationException;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;

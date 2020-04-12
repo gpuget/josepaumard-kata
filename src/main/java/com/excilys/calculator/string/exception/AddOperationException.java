@@ -1,4 +1,4 @@
-package com.excilys.calculator.exception;
+package com.excilys.calculator.string.exception;
 
 /**
  * The type Add operation exception.
