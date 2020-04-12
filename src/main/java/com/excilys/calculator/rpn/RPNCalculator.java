@@ -6,6 +6,14 @@ public class RPNCalculator {
     }
 
     public static int compute(String input) {
+        if (input.isBlank()) {
+            return 0;
+        }
+
+        if (input.length() == 1) {
+            return Integer.parseInt(input);
+        }
+
         return 0;
     }
 }

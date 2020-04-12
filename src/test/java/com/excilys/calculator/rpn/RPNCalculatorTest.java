@@ -13,4 +13,9 @@ class RPNCalculatorTest {
     public void givenEmpty_whenCompute_then0() {
         givenInput_whenCompute_thenExpected("", 0);
     }
+
+    @Test
+    public void givenSimple_whenCompute_then1() {
+        givenInput_whenCompute_thenExpected("1", 1);
+    }
 }
