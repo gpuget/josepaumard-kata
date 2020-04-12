@@ -6,7 +6,7 @@ public class LeapYearsCalculator {
     }
 
     public static boolean execute(int year) {
-        return isDivisibleBy4(year) && !isDivisibleBy100(year);
+        return isDivisibleBy400(year) || (isDivisibleBy4(year) && !isDivisibleBy100(year));
     }
 
     private static boolean isDivisibleBy4(int number) {
@@ -15,6 +15,10 @@ public class LeapYearsCalculator {
 
     private static boolean isDivisibleBy100(int number) {
         return isDivisibleBy(number, 100);
+    }
+
+    private static boolean isDivisibleBy400(int number) {
+        return isDivisibleBy(number, 400);
     }
 
     private static boolean isDivisibleBy(int number, int by) {
