@@ -34,4 +34,9 @@ class RPNCalculatorTest {
     public void given4And2AndAdditionAnd3AndSubtract_whenCompute_then3() {
         givenInput_whenCompute_thenExpected("4 2 + 3 -", 3);
     }
+
+    @Test
+    public void given3And5And8AndMultiplicationAnd7AndAdditionAndMultiplication_whenCompute_then141() {
+        givenInput_whenCompute_thenExpected("3 5 8 * 7 + *", 141);
+    }
 }

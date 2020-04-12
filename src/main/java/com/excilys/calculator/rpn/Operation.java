@@ -7,9 +7,11 @@ import java.util.function.IntBinaryOperator;
 public enum Operation {
     ADD((x, y) -> x + y),
     SUB((x, y) -> x - y),
+    MUL((x, y) -> x * y),
     DIV((x, y) -> x / y);
 
-    private static final Map<String, Operation> MAPPING = Map.of("+", ADD, "/", DIV, ":", DIV, "-", SUB);
+    private static final Map<String, Operation> MAPPING =
+            Map.of("+", ADD, "/", DIV, ":", DIV, "-", SUB, "*", MUL, "x", MUL);
 
     private final IntBinaryOperator op;
 
