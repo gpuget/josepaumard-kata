@@ -20,8 +20,6 @@ public enum UnaryOperation implements RPNOperation {
 
     @Override
     public int compute(Deque<Integer> operands) {
-        int tmp = this.operator.applyAsInt(operands.pop());
-        operands.push(tmp);
-        return tmp;
+        return this.operator.applyAsInt(operands.pop());
     }
 }

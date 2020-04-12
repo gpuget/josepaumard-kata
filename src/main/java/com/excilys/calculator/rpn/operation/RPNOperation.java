@@ -11,6 +11,16 @@ public interface RPNOperation {
      *
      * @param operands
      *         the operands
+     */
+    default void computeAndPush(Deque<Integer> operands) {
+        operands.push(compute(operands));
+    }
+
+    /**
+     * Computes with all operands.
+     *
+     * @param operands
+     *         the operands
      *
      * @return the result
      */

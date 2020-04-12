@@ -23,7 +23,6 @@ public enum AggregationOperation implements RPNOperation {
     public int compute(Deque<Integer> operands) {
         int tmp = this.operator.apply(operands).orElseThrow(() -> new IllegalArgumentException("missing operands"));
         operands.removeAll(operands);
-        operands.push(tmp);
         return tmp;
     }
 }

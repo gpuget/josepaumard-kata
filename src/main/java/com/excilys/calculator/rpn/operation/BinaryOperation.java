@@ -32,9 +32,7 @@ public enum BinaryOperation implements RPNOperation {
 
     @Override
     public int compute(Deque<Integer> operands) {
-        int tmp = revertAndCompute(operands.pop(), operands.pop());
-        operands.push(tmp);
-        return tmp;
+        return revertAndCompute(operands.pop(), operands.pop());
     }
 
     private int revertAndCompute(int y, int x) {

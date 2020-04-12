@@ -48,7 +48,7 @@ public class RPNCalculator {
             if (Character.isDigit(s.charAt(0))) {
                 operands.push(Integer.parseInt(s));
             } else {
-                RPNOperationStrategy.of(s).compute(operands);
+                RPNOperationStrategy.of(s).computeAndPush(operands);
             }
         }
 
