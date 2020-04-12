@@ -6,7 +6,7 @@ public class LeapYearsCalculator {
     }
 
     public static boolean isLeapYear(int year) {
-        return isAtypicalLeap(year) || (isTypicalLeap(year) && !isAtypicalCommon(year));
+        return isAtypicalLeap(year) || (!isAtypicalCommon(year) && isTypicalLeap(year));
     }
 
     private static boolean isTypicalLeap(int number) {
