@@ -30,8 +30,13 @@ public class RPNCalculator {
             if (Character.isDigit(s.charAt(0))) {
                 operands.push(Integer.parseInt(s));
             } else {
-                int intermediate = Operation.of(s).reverseAndCompute(operands.pop(), operands.pop());
-                operands.push(intermediate);
+                Operation operation = Operation.of(s);
+                if (operation != Operation.SQRT) {
+                    int intermediate = operation.reverseAndCompute(operands.pop(), operands.pop());
+                    operands.push(intermediate);
+                } else {
+                    operands.push(operation.compute(operands.pop(), 0));
+                }
             }
         }
 

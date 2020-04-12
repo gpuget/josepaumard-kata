@@ -39,4 +39,9 @@ class RPNCalculatorTest {
     public void given3And5And8AndMultiplicationAnd7AndAdditionAndMultiplication_whenCompute_then141() {
         givenInput_whenCompute_thenExpected("3 5 8 * 7 + *", 141);
     }
+
+    @Test
+    public void given9AndSqrt_whenCompute_then3() {
+        givenInput_whenCompute_thenExpected("9 SQRT", 3);
+    }
 }

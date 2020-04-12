@@ -8,10 +8,16 @@ public enum Operation {
     ADD((x, y) -> x + y),
     SUB((x, y) -> x - y),
     MUL((x, y) -> x * y),
-    DIV((x, y) -> x / y);
+    DIV((x, y) -> x / y),
+    SQRT((x, y) -> (int) Math.sqrt(x)) {
+        @Override
+        public int reverseAndCompute(int y, int x) {
+            return compute(y, x);
+        }
+    };
 
     private static final Map<String, Operation> MAPPING =
-            Map.of("+", ADD, "/", DIV, ":", DIV, "-", SUB, "*", MUL, "x", MUL);
+            Map.of("+", ADD, "/", DIV, ":", DIV, "-", SUB, "*", MUL, "x", MUL, SQRT.name(), SQRT);
 
     private final IntBinaryOperator op;
 
