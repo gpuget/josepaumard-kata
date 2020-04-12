@@ -1,7 +1,8 @@
 # josepaumard-kata
-https://josepaumard.github.io/
-* FizzBuzz: https://josepaumard.github.io/katas/introductory/fizzbuzz-kata.html
-* String Calculator: https://josepaumard.github.io/katas/introductory/stringcalculator-kata.html
+[https://josepaumard.github.io/]
+* FizzBuzz: [https://josepaumard.github.io/katas/introductory/fizzbuzz-kata.html]
+* String Calculator: [https://josepaumard.github.io/katas/introductory/stringcalculator-kata.html]
+* Leap Years: [https://josepaumard.github.io/katas/introductory/leapyears-kata.html]
 
 
 # The FizzBuzz Kata
@@ -151,3 +152,23 @@ The exception part may be a good occasion to check the elements every Java devel
 
 ### Wrap-up
 StringCalculator is a nice kata, not very hard, another good occasion to work on problem slicing and TDD. And for the Java version of this kata, a good occasion to make sure everything is known about exceptions!
+
+# The LeapYears Kata
+## The Kata
+Write a function that returns true or false depending on whether its input integer is a leap year or not. A leap year is defined as one that is divisible by 4, but is not otherwise divisible by 100 unless it is also divisible by 400.
+
+For example 2001 is a typical common year and 1996 is a typical leap year, whereas 1900 is an atypical common year and 2000 is an atypical leap year.
+
+## Comments
+The LeapYear kata is a very good kata to be made second after the FizzBuzz kata. Why? Because people learning TDD need to fail somewhere to fully understand that TDD is there to help them. So I usually give this kata just after FizzBuzz, and let people do what they want, especially if they do not follow the right TDD path. In fact, what I like, is seeing them jumping in the implementation of the specification, writing a first version that will not work, and then falling in a doomed fix / run the test / fix again loop that will lead them to more complexity, more bugs, and loose them in the end.
+
+This may seem cruel, but it is sometimes good to be put in front of one’s weaknesses. The logical expression of a leap year is quite complex, and not that easy to correctly implement in one go.
+
+Beside this, all the principles I tell people during the FizzBuzz kata are just the same here: baby steps, the importance of naming elements (fields, variables, methods, test methods), extracting technical code in correctly named private methods, etc.
+
+On the overall, this kata is very similar to the FizzBuzz kata, slightly more difficult.
+
+I added a leapyears-kata branch in this repo with a way of solving this kata, commit by commit. You can access the first commit of this branch here.
+
+## Wrap-up
+The LeapYear kata is a nice introductory kata, a little harder than the FizzBuzz one, mainly due to a quite complex boolean expression to write. This being said, the baby steps approach works very well here, and the problem is very easy to split.
