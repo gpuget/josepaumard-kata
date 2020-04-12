@@ -18,10 +18,14 @@ public class FizzBuzz {
     }
 
     private static boolean isDivisibleBy5(int number) {
-        return (number % 5) == 0;
+        return isDivisibleBy(number, 5);
     }
 
     private static boolean isDivisibleBy3(int number) {
-        return (number % 3) == 0;
+        return isDivisibleBy(number, 3);
+    }
+
+    private static boolean isDivisibleBy(int number, int by) {
+        return (number % by) == 0;
     }
 }
