@@ -10,11 +10,15 @@ public class FizzBuzz {
             return "Fizz";
         }
 
-        if (number == 5) {
+        if (isDivisibleBy5(number)) {
             return "Buzz";
         }
 
         return String.valueOf(number);
+    }
+
+    private static boolean isDivisibleBy5(int number) {
+        return (number % 5) == 0;
     }
 
     private static boolean isDivisibleBy3(int number) {
