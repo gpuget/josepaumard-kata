@@ -6,15 +6,20 @@ public class FizzBuzz {
     }
 
     public static String execute(int number) {
+        StringBuilder builder = new StringBuilder();
+
         if (isDivisibleBy3(number)) {
-            return "Fizz";
+            builder.append("Fizz");
         }
 
         if (isDivisibleBy5(number)) {
-            return "Buzz";
+            builder.append("Buzz");
         }
 
-        return String.valueOf(number);
+        String res = builder.toString();
+        return res.isEmpty()
+               ? String.valueOf(number)
+               : res;
     }
 
     private static boolean isDivisibleBy5(int number) {
