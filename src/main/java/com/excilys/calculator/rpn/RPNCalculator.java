@@ -1,7 +1,7 @@
 package com.excilys.calculator.rpn;
 
+import com.excilys.calculator.rpn.operation.RPNOperationStrategy;
 import java.util.ArrayDeque;
-import java.util.Comparator;
 import java.util.Deque;
 import java.util.regex.Pattern;
 
@@ -48,17 +48,7 @@ public class RPNCalculator {
             if (Character.isDigit(s.charAt(0))) {
                 operands.push(Integer.parseInt(s));
             } else {
-                Operation operation = Operation.of(s);
-                if (operation == Operation.SQRT) {
-                    operands.push(operation.compute(operands.pop(), 0));
-                } else if (operation == Operation.MAX) {
-                    return operands.stream()
-                                   .max(Comparator.naturalOrder())
-                                   .orElseThrow(() -> new IllegalArgumentException("missing operand"));
-                } else {
-                    int intermediate = operation.revertAndCompute(operands.pop(), operands.pop());
-                    operands.push(intermediate);
-                }
+                RPNOperationStrategy.of(s).compute(operands);
             }
         }
 
