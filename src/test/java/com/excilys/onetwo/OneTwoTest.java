@@ -13,4 +13,9 @@ class OneTwoTest {
     public void givenEmpty_whenDescribe_thenEmpty() {
         givenInput_whenDescribe_thenOutput("", "");
     }
+
+    @Test
+    public void given2_whenDescribe_thenOneTwo() {
+        givenInput_whenDescribe_thenOutput("2", "one two");
+    }
 }
