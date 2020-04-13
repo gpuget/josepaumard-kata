@@ -43,4 +43,9 @@ class OneTwoTest {
     public void given244466666_whenDescribe_thenSevenOne() {
         givenInput_whenDescribe_thenOutput("2 4 4 4 6 6 6 6 6", "one two three four five six");
     }
+
+    @Test
+    public void given555555555555_whenDescribe_thenNineFiveThreeFive() {
+        givenInput_whenDescribe_thenOutput("5 5 5 5 5 5 5 5 5 5 5 5", "nine five three five");
+    }
 }
