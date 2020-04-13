@@ -27,9 +27,19 @@ public class OneTwo {
             return input;
         }
 
-        var split = input.split(DELIMITER);
-        return new StringJoiner(" ").add(MAPPING.get(split.length))
-                                    .add(MAPPING.get(Integer.parseInt(split[0])))
-                                    .toString();
+        StringJoiner joiner = new StringJoiner(DELIMITER);
+        int count = 0;
+        String last = "";
+        for (String s : input.split(DELIMITER)) {
+            count += 1;
+            if (last.equals(s)) {
+                last = s;
+            } else {
+                joiner.add(MAPPING.get(count)).add(MAPPING.get(Integer.parseInt(s)));
+                count = 0;
+            }
+        }
+
+        return joiner.toString();
     }
 }
