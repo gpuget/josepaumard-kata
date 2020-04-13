@@ -28,4 +28,19 @@ class OneTwoTest {
     public void given2And2_whenDescribe_thenTwoTwo() {
         givenInput_whenDescribe_thenOutput("2 2", "two two");
     }
+
+    @Test
+    public void given399988_whenDescribe_thenOneThreeThreeNineTwoEight() {
+        givenInput_whenDescribe_thenOutput("3 9 9 9 8 8", "one three three nine two eight");
+    }
+
+    @Test
+    public void given1111111_whenDescribe_thenSevenOne() {
+        givenInput_whenDescribe_thenOutput("1 1 1 1 1 1 1", "seven one");
+    }
+
+    @Test
+    public void given244466666_whenDescribe_thenSevenOne() {
+        givenInput_whenDescribe_thenOutput("2 4 4 4 6 6 6 6 6", "one two three four five six");
+    }
 }
