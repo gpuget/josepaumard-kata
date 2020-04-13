@@ -23,4 +23,9 @@ class OneTwoTest {
     public void given1And2_whenDescribe_thenOneOneOneTwo() {
         givenInput_whenDescribe_thenOutput("1 2", "one one one two");
     }
+
+    @Test
+    public void given2And2_whenDescribe_thenTwoTwo() {
+        givenInput_whenDescribe_thenOutput("2 2", "two two");
+    }
 }

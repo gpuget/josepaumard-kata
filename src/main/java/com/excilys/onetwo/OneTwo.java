@@ -2,8 +2,11 @@ package com.excilys.onetwo;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class OneTwo {
     private static final Map<Integer, String> MAPPING;
@@ -27,19 +30,12 @@ public class OneTwo {
             return input;
         }
 
-        StringJoiner joiner = new StringJoiner(DELIMITER);
-        int count = 0;
-        String last = "";
-        for (String s : input.split(DELIMITER)) {
-            count += 1;
-            if (last.equals(s)) {
-                last = s;
-            } else {
-                joiner.add(MAPPING.get(count)).add(MAPPING.get(Integer.parseInt(s)));
-                count = 0;
-            }
-        }
+        Map<String, List<String>> map = Pattern.compile(DELIMITER)
+                                               .splitAsStream(input)
+                                               .collect(Collectors.groupingBy(s -> MAPPING.get(Integer.parseInt(s))));
 
+        StringJoiner joiner = new StringJoiner(DELIMITER);
+        map.forEach((s, list) -> joiner.add(MAPPING.get(list.size())).add(s));
         return joiner.toString();
     }
 }
