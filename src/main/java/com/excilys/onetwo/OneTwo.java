@@ -7,6 +7,9 @@ import java.util.StringJoiner;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+/**
+ * OneTwo string describer.
+ */
 public class OneTwo {
     private static final Map<Integer, String> MAPPING =
             Map.of(1, "one", 2, "two", 3, "three", 4, "four", 5, "five", 6, "six", 7, "seven", 8, "eight", 9, "nine");
@@ -16,7 +19,15 @@ public class OneTwo {
         throw new AssertionError("You shall not pass !");
     }
 
-    public static String describe(String input) {
+    /**
+     * Reads the input and returns an understandable string.
+     *
+     * @param input
+     *         the input
+     *
+     * @return the understandable string
+     */
+    public static String read(String input) {
         if (input.isBlank()) {
             return input;
         }
