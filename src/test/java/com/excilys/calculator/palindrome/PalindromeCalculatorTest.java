@@ -2,6 +2,7 @@ package com.excilys.calculator.palindrome;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
 
 class PalindromeCalculatorTest {
@@ -29,5 +30,10 @@ class PalindromeCalculatorTest {
         givenInput_thenIsPalindrome("Dad");
         givenInput_thenIsPalindrome("Mum");
         givenInput_thenIsPalindrome("Eve");
+    }
+
+    @Test
+    public void givenWords_thenIsPalindrome() {
+        Stream.of("level", "radar", "rotor", "reviver", "redivider").forEach(this::givenInput_thenIsPalindrome);
     }
 }
