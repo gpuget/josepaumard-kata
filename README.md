@@ -5,6 +5,7 @@
 * Leap Years: [https://josepaumard.github.io/katas/introductory/leapyears-kata.html]
 * RPN Calculator: [https://josepaumard.github.io/katas/introductory/rpncalculator-kata.html]
 * One Two: [https://josepaumard.github.io/katas/introductory/onetwo-kata.html]
+* Palindrome: [https://josepaumard.github.io/katas/introductory/palindrome-kata.html]
 
 # The FizzBuzz Kata
 The FizzBuzz kata is the first kata of our serie. It is very simple and inspired by a game told to young children to teach them the division. Because it is very simple, we can use it to see the first principles of clean code and software crafstmanship.
