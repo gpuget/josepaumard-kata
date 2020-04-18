@@ -36,4 +36,14 @@ class PalindromeCalculatorTest {
     public void givenWords_thenIsPalindrome() {
         Stream.of("level", "radar", "rotor", "reviver", "redivider").forEach(this::givenInput_thenIsPalindrome);
     }
+
+    @Test
+    public void givenSentence_thenIsPalindrome() {
+        givenInput_thenIsPalindrome("Noel sees Leon");
+    }
+
+    @Test
+    public void givenSentenceWithDot_thenIsPalindrome() {
+        givenInput_thenIsPalindrome("Noel sees Leon.");
+    }
 }
