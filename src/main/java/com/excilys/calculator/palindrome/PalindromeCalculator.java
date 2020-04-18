@@ -13,6 +13,7 @@ public class PalindromeCalculator {
             return input.charAt(0) == input.charAt(length - 1);
         }
 
-        return false;
+        String lower = input.toLowerCase();
+        return new StringBuilder(lower).reverse().toString().equals(lower);
     }
 }
