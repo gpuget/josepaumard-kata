@@ -13,6 +13,10 @@ public class PalindromeCalculator {
             return input.charAt(0) == input.charAt(length - 1);
         }
 
+        return stringBuilderSolution(input);
+    }
+
+    private static boolean stringBuilderSolution(String input) {
         String lower = input.toLowerCase().replace(".", "");
         return new StringBuilder(lower).reverse().toString().equals(lower);
     }
