@@ -2,11 +2,22 @@ package com.excilys.calculator.palindrome;
 
 import java.util.Objects;
 
-public class PalindromeCalculator {
+/**
+ * Palindrome calculator.
+ */
+public final class PalindromeCalculator {
     private PalindromeCalculator() {
         throw new AssertionError("I am not bad I'm just drawn that way");
     }
 
+    /**
+     * Returns {@code true} if the input is a palindrome.
+     *
+     * @param input
+     *         the input
+     *
+     * @return {@code true} if the input is a palindrome, {@code false} otherwise
+     */
     public static boolean isPalindrome(String input) {
         int length = input.length();
         if (length <= 1) {
@@ -16,6 +27,14 @@ public class PalindromeCalculator {
         return whileSolution(input.replace(".", ""));
     }
 
+    /**
+     * Computes with a loop.
+     *
+     * @param input
+     *         the input
+     *
+     * @return {@code true} if the input is a palindrome, {@code false} otherwise
+     */
     private static boolean whileSolution(String input) {
         int first = 0;
         int last = input.length() - 1;
@@ -33,6 +52,14 @@ public class PalindromeCalculator {
         return true;
     }
 
+    /**
+     * Computes with a string builder.
+     *
+     * @param input
+     *         the input
+     *
+     * @return {@code true} if the input is a palindrome, {@code false} otherwise
+     */
     private static boolean stringBuilderSolution(String input) {
         String lower = input.toLowerCase();
         return new StringBuilder(lower).reverse().toString().equals(lower);
