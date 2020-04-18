@@ -6,9 +6,13 @@ public class PalindromeCalculator {
     }
 
     public static boolean isPalindrome(String input) {
-        if (input.length() <= 1) {
+        int length = input.length();
+        if (length <= 1) {
             return true;
+        } else if (length == 2) {
+            return input.charAt(0) == input.charAt(length - 1);
         }
+
         return false;
     }
 }

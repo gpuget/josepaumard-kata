@@ -18,4 +18,9 @@ class PalindromeCalculatorTest {
     public void given1Char_thenIsPalindrome() {
         givenInput_thenIsPalindrome("D");
     }
+
+    @Test
+    public void given2Char_thenIsPalindrome() {
+        givenInput_thenIsPalindrome("DD");
+    }
 }
